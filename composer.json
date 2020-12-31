@@ -1,0 +1,11 @@
+{
+    "name": "transsion/pay-sdk",
+    "description": "transsion pay sdk",
+    "authors": [
+        {
+            "name": "qingyue.zhang2",
+            "email": "qingyue.zhang2@transsion.com"
+        }
+    ],
+    "require": {}
+}
