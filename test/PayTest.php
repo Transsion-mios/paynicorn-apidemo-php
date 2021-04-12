@@ -17,8 +17,8 @@ $payClient = new PaynicornClient($gateway, $appKey, $appSecret);
 $orderId = time() . randNumber();
 
 // test pay
-$result = $payClient->pay("9999999", "100", "50",
-    "BR", "BRL", "alibaba", $orderId, "CARD");
+$result = $payClient->pay("100", 
+    "BR", "BRL", "alibaba", $orderId, "CARD", "http://mysite.com/index.html");
 
 logInfo('pay', $result);
 // result content demo

@@ -48,17 +48,16 @@ class PaynicornClient
      * @param $payOutType
      * @return bool|string|string[]
      */
-    public function pay($account, $amount, $bankCode, $countryCode, $currency, $name, $orderId, $payOutType)
+    public function pay($amount, $countryCode, $currency, $name, $orderId, $payMethod, $cpFrontPage)
     {
         $payData = [
-            "account" => $account,
+            "cpFrontPage" => $cpFrontPage,
             "amount" => $amount,
-            "bankCode" => $bankCode,
             "countryCode" => $countryCode,
             "currency" => $currency,
             "name" => $name,
             "orderId" => $orderId,
-            "payoutType" => $payOutType,
+            "payMethod" => $payMethod,
         ];
         try {
             $response = $this->curl($this->gatewayUrl . self::PAY_URI, $this->aloneSignBody($payData));
