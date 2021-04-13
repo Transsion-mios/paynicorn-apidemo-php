@@ -48,16 +48,15 @@ class PaynicornClient
      * @param $payOutType
      * @return bool|string|string[]
      */
-    public function pay($amount, $countryCode, $currency, $name, $orderId, $payMethod, $cpFrontPage)
+    public function pay($amount, $countryCode, $currency, $orderId, $orderDescription，$cpFrontPage)
     {
         $payData = [
             "cpFrontPage" => $cpFrontPage,
             "amount" => $amount,
             "countryCode" => $countryCode,
             "currency" => $currency,
-            "name" => $name,
             "orderId" => $orderId,
-            "payMethod" => $payMethod,
+            "orderDescription" => $orderDescription
         ];
         try {
             $response = $this->curl($this->gatewayUrl . self::PAY_URI, $this->aloneSignBody($payData));
@@ -242,7 +241,7 @@ class PaynicornClient
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_FAILONERROR, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-type: application/json"));
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($body));

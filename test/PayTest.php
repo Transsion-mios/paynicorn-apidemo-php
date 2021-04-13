@@ -9,7 +9,7 @@
 require_once '../src/paynicorn/PaynicornClient.php';
 
 // test url
-$gateway = 'http://api.paynicorn.com/trade';
+$gateway = 'https://api.paynicorn.com/trade';
 $appKey = 'PUT_YOUR_APP_KEY_HERE';
 $appSecret = 'PUT_YOUR_MERCHANT_MD5_SECRET_KEY_HERE';
 
@@ -18,7 +18,7 @@ $orderId = time() . randNumber();
 
 // test pay
 $result = $payClient->pay("100", 
-    "BR", "BRL", "alibaba", $orderId, "CARD", "http://mysite.com/index.html");
+    "BR", "BRL", $orderId, "This is the order description", "http://www.baidu.com/");
 
 logInfo('pay', $result);
 // result content demo
